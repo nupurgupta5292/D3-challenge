@@ -136,13 +136,11 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
   // mouseover event on circles
   circlesGroup.on("mouseover", function(data) {
     toolTip.show(data);
-    d3.select(this).style('stroke', 'black');
   })
     // onmouseout event
     .on("mouseout", function(data, index) {
       toolTip.hide(data);
-      d3.select(this).style('stroke', '#e3e3e3');
-    });
+  });
 
   return circlesGroup;
 }
@@ -267,6 +265,7 @@ d3.csv("assets/data/data.csv").then(function(data, err) {
   
     // function to updateToolTip for both, the circles and their text
     circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+    circlesTextGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesTextGroup);
   
     // x axis labels event listener
     xLabelsGroup.selectAll("text")
@@ -293,6 +292,7 @@ d3.csv("assets/data/data.csv").then(function(data, err) {
   
           // updates tooltips with new info
           circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+          circlesTextGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesTextGroup);
   
           // changes classes to change bold text on x-axis
           if (chosenXAxis === "age") {
@@ -354,6 +354,7 @@ d3.csv("assets/data/data.csv").then(function(data, err) {
 
         // updates tooltips with new info
         circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circlesTextGroup);
+        circlesTextGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesTextGroup);
 
           // changes classes to change bold text on y-axis
           if (chosenYAxis === "smokes") {

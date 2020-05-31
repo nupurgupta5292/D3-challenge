@@ -37,7 +37,7 @@
 
 .stateCircle:hover {
   fill: rgba(0, 0, 0, 0.8);
-  stroke-width: 10px;
+  stroke-width: 2px;
 }
 
 .chart {
